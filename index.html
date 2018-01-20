@@ -24,6 +24,9 @@
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
 
+    <!--links for Firebase Auth-->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
   </head>
 
   <body id="page-top">
@@ -48,10 +51,80 @@
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">FOOD</a>
             </li>
+            <li class="nav-item mx-0 mx-lg-1 auth">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#register" data-toggle="modal" data-target="#authRegister">Register</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1 auth">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#login" data-toggle="modal" data-target="#authLogin">Login</a>
+            </li>
+            <li class="'nav-item mx-0 mx-lg-1 user-welcome">
+              <a href="#" class="nav-link py-3 px-0 px-lg-3 rounded"></a>
+            </li>
+            <li class="'nav-item mx-0 mx-lg-1 auth-logout">
+              <a href="#logout" class="nav-link py-3 px-0 px-lg-3 rounded" onclick="logout(event)">Logout</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
+
+    <!-- Register modal-->
+    <!-- Modal -->
+    <div class="modal fade" id="authRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Register</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form onsubmit="register(event)">
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- login modal-->
+    <!-- Modal -->
+    <div class="modal fade" id="authLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form onsubmit="login(event)">
+              <div class="form-group">
+                <label for="login-email">Email address</label>
+                <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" class="form-control" id="login-password" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Header -->
     <header class="masthead bg-primary text-white text-center">
@@ -175,7 +248,7 @@
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                   <label>Email Address</label>
-                  <input class="form-control" id="email" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address.">
+                  <input class="form-control" id="email-address" type="email" placeholder="Email Address" required="required" data-validation-required-message="Please enter your email address.">
                   <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -414,6 +487,9 @@
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
 
+  <!--Authentication Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script src="./js/auth.js"></script>
   </body>
 
 </html>
