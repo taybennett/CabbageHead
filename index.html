@@ -27,6 +27,12 @@
     <!--links for Firebase Auth-->
     <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+    <style type="text/css" media="screen">
+          #zipcode {
+            display: flex;
+            justify-content: center;
+          }
+    </style>
   </head>
 
   <body id="page-top">
@@ -136,25 +142,36 @@
       </div>
     </header>
 
-    <!-- Portfolio Grid Section -->
+    <!-- Weather Section -->
     <section class="portfolio" id="portfolio">
       <div class="container">
         <img class="img-fluid mb-5 d-block mx-auto" src="weather.png" alt="">
         <h2 class="text-center text-uppercase text-secondary mb-0">WEATHER</h2>
         <hr class="star-dark mb-5">
         <div class="row">
-          <div class="col-md-6 col-lg-4">
+          <div class="col-md-12 col-lg-12">
             <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
               <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
                 <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="img/portfolio/cabin.png" alt="">
+              <img class="img-fluid" src="img/portfolio/5day.png" alt="">
             </a>
+            </div>
+        </div>
+          <div class="row">
+            <div id="zipcode" class="col-md-12 col-lg-12">
+              <form>
+                ENTER YOUR ZIP
+                <input type="text"; style="color: black;" onfocus="this.value=''" id="userInput">
+                <input type="submit" style="color: black;" id="submitBtn">
+              </form>
+            </div>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
+      </div>
+
+           <!--  <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
               <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
                 <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
                   <i class="fa fa-search-plus fa-3x"></i>
@@ -192,8 +209,8 @@
               </div>
               <img class="img-fluid" src="img/portfolio/safe.png" alt="">
             </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
+          </div>  --> 
+          <!-- <div class="col-md-6 col-lg-4">
             <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-6">
               <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
                 <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
@@ -204,10 +221,10 @@
             </a>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
 
-    <!-- About Section -->
+    <!-- Food Section -->
     <section class="bg-primary text-white mb-0" id="about">
       <div class="container">
         <img class="img-fluid mb-5 d-block mx-auto" src="foodicon.png" alt="">
