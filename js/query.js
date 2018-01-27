@@ -6,6 +6,8 @@ $(document).ready(function() {
             zipCode: null,
             cWeather: null,
             fWeather: [],
+            sFood: null,
+            zFood: false
         },
         methods: {
             submitZip: function() {
