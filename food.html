@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>API calls</title>
+    <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+</head>
+<body>
+
+<button data-search="weatherBtn">Submit</button>
+
+<script type="text/javascript">
+    // Button to call the information
+    $('button').on('click', function(){
+        var x = $(this).data("search");
+        console.log(x);
+        var queryURL ="http://api.openweathermap.org/data/2.5/weather?zip=94040,us&appid=810f1b099f115123133ea07badef9acb"
+        console.log(queryURL);
+        $.ajax({
+            url:queryURL,
+            method:'GET'})
+            .done(function(response){
+                console.log(response);
+            })
+        var queryURL ="http://api.openweathermap.org/data/2.5/forecast?zip=70119,us&appid=810f1b099f115123133ea07badef9acb"
+        console.log(queryURL);
+        $.ajax({url:queryURL, method:'GET'})
+            .done(function(response){
+                console.log(response);
+            })
+    })
+</script>
+
+
+<button data-search="foodBtn">Submit</button>
+
+<script type="text/javascript">
+    // Button to call the information
+    $('button').on('click', function(){
+        var x = $(this).data("search");
+        console.log(x);
+        $.ajax({
+            url: "https://developers.zomato.com/api/v2.1/cities?q=atlanta",
+            beforeSend: function(request) {
+                request.setRequestHeader("user-key", "c1f8756961eb0c55ab93d4c4c1fd4812");
+            }
+        }).done(function(response) {
+            console.log(response);
+        })
+        $.ajax({
+            url: "https://developers.zomato.com/api/v2.1/cities?q=new york",
+            beforeSend: function(request) {
+                request.setRequestHeader("user-key", "c1f8756961eb0c55ab93d4c4c1fd4812");
+            }
+        }).done(function(response) {
+            console.log(response);
+        })
+    })
+</script>
+
+</body>
+</html>
