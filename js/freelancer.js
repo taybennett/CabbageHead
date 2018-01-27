@@ -49,7 +49,7 @@
   // Collapse the navbar when page is scrolled
   $(window).scroll(navbarCollapse);
 
-  // Modal popup$(function () {
+  Modal popup$(function () {
   $('.portfolio-item').magnificPopup({
     type: 'inline',
     preloader: false,
