@@ -23,11 +23,9 @@
 
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" rel="stylesheet">
 
     <!--links for Firebase Auth-->
     <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
-
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
     <style type="text/css" media="screen">
           #zipcode {
@@ -38,11 +36,12 @@
   </head>
 
   <body id="page-top">
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">Flaming Cabbage</a>
-        <img class="logo" src="flamingcabbage.png">
+        <img class="logo" src="flamingcabbage.png"></a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -50,25 +49,25 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#chat">CHAT</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">CHAT</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#weather">WEATHER</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">WEATHER</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#food">FOOD</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">FOOD</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1 auth">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" data-toggle="modal" data-target="#authRegister">Register</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#register" data-toggle="modal" data-target="#authRegister">Register</a>
             </li>
             <li class="nav-item mx-0 mx-lg-1 auth">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" data-toggle="modal" data-target="#authLogin">Login</a>
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#login" data-toggle="modal" data-target="#authLogin">Login</a>
             </li>
             <li class="'nav-item mx-0 mx-lg-1 user-welcome">
               <a href="#" class="nav-link py-3 px-0 px-lg-3 rounded"></a>
             </li>
             <li class="'nav-item mx-0 mx-lg-1 auth-logout">
-              <a href="#" class="nav-link py-3 px-0 px-lg-3 rounded" onclick="logout(event)">Logout</a>
+              <a href="#logout" class="nav-link py-3 px-0 px-lg-3 rounded" onclick="logout(event)">Logout</a>
             </li>
           </ul>
         </div>
@@ -91,7 +90,7 @@
               <div class="form-group">
                 <label for="email">Email address</label>
                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
@@ -110,7 +109,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Login</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -133,120 +132,116 @@
       </div>
     </div>
 
+    <!-- Header -->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container">
+        <img class="img-fluid mb-5 d-block mx-auto" src="chaticon.png" alt="">
+        <h1 class="text-uppercase mb-0">CHAT</h1>
+        <hr class="star-light">
+        <h2 class="font-weight-light mb-0">HOLD</h2>
+      </div>
+    </header>
 
     <!-- Weather Section -->
-    <br><br><br>
-    <section class="portfolio" id="weather">
-      <div class="container" id="weatherApp">
+    <section class="portfolio" id="portfolio">
+      <div class="container">
         <img class="img-fluid mb-5 d-block mx-auto" src="weather.png" alt="">
         <h2 class="text-center text-uppercase text-secondary mb-0">WEATHER</h2>
-        <div id="weather-data" v-if="cWeather">
-          <br>
-          <h4 class="name">
-            City {{cWeather.name}}
-          </h4>
-          <div class="temperature">{{cWeather.main.temp}} Degrees</div>
-          <p class="cond-title">Current conditions:</p>
-          <div class="weather-conditions" v-for="condition in cWeather.weather">
-            <h6 class="condition">
-              {{condition.description}}
-              <span>
-                <img v-bind:src="icon(condition.icon)" alt="">
-              </span>
-            </h6>
-          </div>
-        </div>
-
         <hr class="star-dark mb-5">
         <div class="row">
           <div class="col-md-12 col-lg-12">
-            <span class="portfolio-item d-block mx-auto" >
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
               <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
                 <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
                   <i class="fa fa-search-plus fa-3x"></i>
                 </div>
               </div>
               <img class="img-fluid" src="img/portfolio/5day.png" alt="">
-            </span>
-          </div>
+            </a>
+            </div>
         </div>
-        <div class="forecast-results">
-           <span class="forecast-list" v-for="day in forecast">
-             <div class="forecast-date">{{formatDate(day.dt_txt)}}</div>
-             <div class="temperature">{{day.main.temp}} Degrees</div>
-             <div class='forecast-desc' v-for="condition in day.weather">
-                {{condition.description}}
-                 <div>
-                   <img v-bind:src="icon(condition.icon)" alt="">
-                 </div>
-             </div>
-           </span>
-        </div>
-
-        <div class="row">
-          <div id="zipcode" class="col-md-12 col-lg-12">
-            <form>
+          <div class="row">
+            <div id="zipcode" class="col-md-12 col-lg-12">
+              <form>
               ENTER YOUR ZIP
-              <input v-model="zipCode" type="text" style="color: black;" id="userInputWeather">
-              <input v-on:click.prevent="submitZip()" type="submit" style="color: black;" id="submitWeather">
-            </form>
+                <input type="text"; style="color: black;" onfocus="this.value=''" id="userInput">
+                <input type="submit" style="color: black;" id="submitBtn">
+              </form>
+            </div>
           </div>
-        </div>
       </div>
 
+           <!--  <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="img/portfolio/cake.png" alt="">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="img/portfolio/circus.png" alt="">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-4">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="img/portfolio/game.png" alt="">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-5">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="img/portfolio/safe.png" alt="">
+            </a>
+          </div>  --> 
+          <!-- <div class="col-md-6 col-lg-4">
+            <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-6">
+              <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+                <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                  <i class="fa fa-search-plus fa-3x"></i>
+                </div>
+              </div>
+              <img class="img-fluid" src="img/portfolio/submarine.png" alt="">
+            </a>
+          </div>
+        </div>
+      </div> -->
     </section>
 
     <!-- Food Section -->
-    <section class="bg-primary text-white mb-0" id="food">
+    <section class="bg-primary text-white mb-0" id="about">
       <div class="container">
         <img class="img-fluid mb-5 d-block mx-auto" src="foodicon.png" alt="">
         <h2 class="text-center text-uppercase text-white">FOOD</h2>
         <hr class="star-light mb-5">
-        <span v-if="trending.length > 0">
-          <div class="foodList" v-for="trend in trending">
-            <h5>
-              {{trend.restaurant.name}}
-            </h5>
-            <span class="rating">
-              {{trend.restaurant.user_rating.rating_text}}
-            </span>
-            <div>
-              <small>
-                {{trend.restaurant.location.address}}
-              </small>
+        </div>
+          <div class="row">
+            <div id="zipcode" class="col-md-12 col-lg-12">
+              <form>
+              ENTER YOUR ZIP
+                <input type="text"; style="color: black;" onfocus="this.value=''" id="userInput">
+                <input type="submit" style="color: black;" id="submitBtn">
+              </form>
             </div>
-
           </div>
-        </span>
-        <div style="text-align: center;padding: 30px;" v-if="loading">
-          <span class="loader"><span class="loader-inner"></span></span>
-        </div>
-        <div v-if="(trending.length === 0) && searched" style="text-align: center;padding: 30px;">
-          No results for that location
-        </div>
-
-
-      </div>
-      <div class="row">
-        <div id="zipcodeFood" class="col-md-12 col-lg-12">
-          <form style="text-align: center;">
-            ENTER YOUR CITY &nbsp;
-            <input v-model="city" type="text" style="color: black;" id="userInputFood">
-            <input v-on:click.prevent="foodFetch()" type="submit" style="color: black;" id="submitFood">
-          </form>
-        </div>
-      </div>
+      </div> 
     </section>
-
-    <!-- Header -->
-    <header class="masthead bg-primary text-white text-center">
-      <div class="container" id="chat">
-        <img class="img-fluid mb-5 d-block mx-auto" src="chaticon.png" alt="">
-        <h1 class="text-uppercase mb-0">CHAT</h1>
-        <hr class="star-light">
-        <iframe src="https://kiwiirc.com/client/irc.freenode.net/?nick=Cabbage|?&theme=mini#CabbageHead" style="border:15px; width:500px; height:450px;"></iframe>
-      </div>
-    </header>
 
     <!-- Contact Section -->
     <section id="contact">
@@ -506,14 +501,10 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/freelancer.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
+
   <!--Authentication Firebase-->
     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
     <script src="./js/auth.js"></script>
-  <!--CDN for vue js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
-    <script src="./js/query.js"></script>
-
   </body>
 
 </html>
