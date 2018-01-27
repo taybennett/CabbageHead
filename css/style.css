@@ -1,0 +1,106 @@
+#weather-data {
+    margin: 1rem auto 0 auto;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    max-width: 700px;
+    background: whitesmoke;
+}
+.temperature {
+    color: #58b2ff;
+}
+.cond-title {
+    margin-top: .3rem;
+    margin-bottom: 0;
+}
+.forecast-list {
+    font-size: .8rem;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    background: whitesmoke;
+}
+.forecast-results {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.foodList {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: whitesmoke;
+    margin: 5px auto;
+    max-width: 600px;
+    border-radius: 5px;
+    text-align: center;
+    color: #262626;
+}
+.rating {
+    color: #5b8d4f;
+    font-style: italic;
+}
+
+/*spinner*/
+.loader {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 4px solid #Fff;
+    top: 50%;
+    animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader-inner {
+    0% {
+        height: 0%;
+    }
+
+    25% {
+        height: 0%;
+    }
+
+    50% {
+        height: 100%;
+    }
+
+    75% {
+        height: 100%;
+    }
+
+    100% {
+        height: 0%;
+    }
+}
